@@ -29,21 +29,21 @@ fun main(){
         //Exercise 2 - get location by id
         get("/locations/{location-id}"){ ctx ->
             val locationId = ctx.pathParam("location-id").toInt()
-            ctx.json(locationDao.findById(locationId)!!)
+            ctx.json(locationDao.findById(id = locationId)!!)
             ctx.status(200)
         }
 
         //Challenge 1 - post location
         post("/locations"){ ctx ->
             val location = ctx.bodyAsClass<Location>()
-            locationDao.save(location)
+            locationDao.save(location = location)
             ctx.status(201).json("SAVO COM SUCESSO!")
         }
 
         //Challenge 2 - delete location
         delete("locations/{location-id}"){ ctx ->
             val locationId = ctx.pathParam("location-id").toInt()
-            locationDao.delete(locationId)
+            locationDao.delete(id = locationId)
             ctx.status(204)
         }
 
@@ -51,7 +51,7 @@ fun main(){
         patch("locations/{location-id}"){ ctx ->
             val locationUpdates = ctx.bodyAsClass<Location>()
             val locationId = ctx.pathParam("location-id").toInt()
-            locationDao.update(locationId, locationUpdates)
+            locationDao.update(id = locationId, location = locationUpdates)
             ctx.status(204)
         }
     }
