@@ -42,18 +42,24 @@ class LocationDao {
     //save location
     fun save( location: Location){
         val id = lastId.incrementAndGet()
-        locations.put(id, Location(
-            id = id, mensagem = location.mensagem, longitude = location.longitude,
-            latitude = location.latitude, galaxia = location.galaxia, planeta = location.planeta
-        )
+        locations.put(
+            id,
+            Location(
+                id,
+                location.mensagem,
+                location.longitude,
+                location.latitude,
+                location.galaxia,
+                location.planeta
+            )
         )
     }
 
     //get all location
-    fun getAllLocations() = locations
+    fun getAll() = locations
 
     //get random location
-    fun getRandomLocation(): Location {
+    fun getRandom(): Location {
         val randomId = (0..3).random()
         return locations[randomId]!!
     }
@@ -72,12 +78,12 @@ class LocationDao {
     fun update(id: Int, location: Location){
         locations.put(id,
             Location(
-                id = id,
-                mensagem = location.mensagem,
-                longitude = location.longitude,
-                latitude = location.latitude,
-                galaxia = location.galaxia,
-                planeta = location.planeta
+                id,
+                location.mensagem,
+                location.longitude,
+                location.latitude,
+                location.galaxia,
+                location.planeta
             )
         )
     }
