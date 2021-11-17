@@ -37,7 +37,7 @@ class LocationDao {
         )
     )
 
-    var lastId: AtomicInteger = AtomicInteger(locations.size - 1)
+    private var lastId: AtomicInteger = AtomicInteger(locations.size - 1)
 
     //save location
     fun save( location: Location){
@@ -60,7 +60,7 @@ class LocationDao {
 
     //get random location
     fun getRandom(): Location {
-        val randomId = (0..3).random()
+        val randomId = (0..lastId.toInt()).random()
         return locations[randomId]!!
     }
 
