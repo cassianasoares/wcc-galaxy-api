@@ -45,12 +45,12 @@ class LocationDao {
         locations.put(
             id,
             Location(
-                id,
-                location.mensagem,
-                location.longitude,
-                location.latitude,
-                location.galaxia,
-                location.planeta
+                id = id,
+                mensagem = location.mensagem,
+                longitude = location.longitude,
+                latitude = location.latitude,
+                galaxia = location.galaxia,
+                planeta = location.planeta
             )
         )
     }
@@ -78,12 +78,12 @@ class LocationDao {
     fun update(id: Int, location: Location){
         locations.put(id,
             Location(
-                id,
-                location.mensagem,
-                location.longitude,
-                location.latitude,
-                location.galaxia,
-                location.planeta
+                id = id,
+                mensagem = location.mensagem,
+                longitude = location.longitude,
+                latitude = location.latitude,
+                galaxia = location.galaxia,
+                planeta = location.planeta
             )
         )
     }
