@@ -56,6 +56,16 @@ fun main(){
             locationDao.update(id, locationUpdated)
             ctx.status(204)
         }
+
+        //Challenge 4
+        //create a new route /location/planet/{planet-name}
+        //search this planet on locationDao and return the result
+        get("/location/planet/{planet-name}"){ ctx ->
+            val planetName = ctx.pathParam("planet-name")
+
+            ctx.json(locationDao.findByPlanet(planetName)!!)
+            ctx.status(200)
+        }
     }
 
 }

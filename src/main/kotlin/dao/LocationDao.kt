@@ -69,6 +69,11 @@ class LocationDao {
         return locations[id]
     }
 
+    //get by planet
+    fun findByPlanet(planet: String): Location?{
+        return locations.values.find { it.planeta == planet }
+    }
+
     //delete location
     fun delete(id: Int){
         locations.remove(id)
